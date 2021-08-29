@@ -8,7 +8,9 @@ The closest existing tools that provide similar solutions are [awsls](https://gi
 
 awsls is a command-line tool that allows you to list resources across multiple regions and CLI profiles. It uses Terraform's AWS provider to retrieve all resources and properties.
 
-botocove is a Python library that allows you to execute boto3 functions across all accounts in an organization. It decorates a function that takes a boto3 session. In theory it would be possible to combine it with this client, but I haven't tried that yet.
+botocove is a Python library that allows you to execute boto3 functions across all accounts in an organization. It decorates a function that takes a boto3 session. It is possible to combine it with this client to query all accounts and regions. See botocove_test.py for an example.
+
+The botocove test uses a get_enabled_regions function to avoid failures from querying disabled functions. This function is generally useful and could be split out.
 
 ## Example
 
