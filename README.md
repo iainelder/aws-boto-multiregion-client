@@ -8,9 +8,7 @@ The closest existing tools that provide similar solutions are [awsls](https://gi
 
 awsls is a command-line tool that allows you to list resources across multiple regions and CLI profiles. It uses Terraform's AWS provider to retrieve all resources and properties.
 
-botocove is a Python library that allows you to execute boto3 functions across all accounts in an organization. It decorates a function that takes a boto3 session. It is possible to combine it with this client to query all accounts and regions. See botocove_test.py for an example.
-
-The botocove test uses a get_enabled_regions function to avoid failures from querying disabled functions. This function is generally useful and could be split out.
+botocove is a Python library that allows you to execute boto3 functions across all accounts in an organization. It decorates a function that takes a boto3 session.
 
 ## Example
 
@@ -111,4 +109,22 @@ Out[7]:
     'CidrBlockState': {'State': 'associated'}}],
   'IsDefault': True,
   'RequestRegion': 'eu-west-2'}]
+```
+
+## Combining with botocove for cross region and cross account queries
+
+It is possible to combine it with this client to query all accounts and regions. See botocove_test.py for an example. It lists all the VPCs in all the enabled regions of all the member accounts in the organization.
+
+The botocove test uses a get_enabled_regions function to avoid failures from querying disabled functions. This function is generally useful and could be split out.
+
+```
+$ poetry run python botocove_test.py
+111111111111 ap-northeast-1 vpc-11111111
+111111111111 ap-northeast-2 vpc-22222222
+111111111111 ap-northeast-3 vpc-33333333
+...
+222222222222 ap-northeast-1 vpc-44444444
+222222222222 ap-northeast-2 vpc-55555555
+222222222222 ap-northeast-3 vpc-66666666
+....
 ```
