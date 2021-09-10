@@ -113,7 +113,7 @@ Out[7]:
 
 ## Combining with botocove for cross region and cross account queries
 
-It is possible to combine it with this client to query all accounts and regions. See botocove_test.py for an example. It lists all the VPCs in all the enabled regions of all the member accounts in the organization.
+Botocove can be combined with this client to query all accounts and regions. See botocove_test.py for an example. It lists all the VPCs in all the enabled regions of all the member accounts in the organization.
 
 The botocove test uses a get_enabled_regions function to avoid failures from querying disabled functions. This function is generally useful and could be split out.
 
