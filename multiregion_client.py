@@ -14,14 +14,14 @@ class MultiRegionClient(object):
 
         if name in self._methods:
             return self._build_dispatcher_with_region_at_top_level(name)
-        
+
         # I'm not sure why I have to write this explicitly. How do I defer to object's default handling?
         # I got this from the question text of https://stackoverflow.com/questions/50542177/correct-handling-of-attributeerror-in-getattr-when-using-property
         raise AttributeError(f"{type(self).__name__} object has no attribute {name}")
 
 
     def _build_dispatcher_with_region_at_top_level(self, method):
-        
+
         def dispatch(*args, **kwargs):
 
             return {
@@ -48,7 +48,7 @@ class MultiRegionClient(object):
 
             return {
                 "ResponseMetadata": [
-                    {**v["ResponseMetadata"], **{"RequestRegion": k}} 
+                    {**v["ResponseMetadata"], **{"RequestRegion": k}}
                     for k, v in result.items()
                 ]
             }

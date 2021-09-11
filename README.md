@@ -46,7 +46,7 @@ Example output in IPython in an account with default subnets:
 
 ```text
 In [5]: result["eu-west-1"]["Vpcs"]
-Out[5]: 
+Out[5]:
 [{'CidrBlock': '172.31.0.0/16',
   'DhcpOptionsId': 'dopt-57e3ef31',
   'State': 'available',
@@ -59,7 +59,7 @@ Out[5]:
   'IsDefault': True}]
 
 In [6]: [resource for regional_result in result.values() for resource in regional_result["Vpcs"]]
-Out[6]: 
+Out[6]:
 [{'CidrBlock': '172.31.0.0/16',
   'DhcpOptionsId': 'dopt-57e3ef31',
   'State': 'available',
@@ -86,7 +86,7 @@ In [7]: [
    ...:         for region, regional_result in result.items()
    ...:             for resource in regional_result["Vpcs"]
    ...: ]
-Out[7]: 
+Out[7]:
 [{'CidrBlock': '172.31.0.0/16',
   'DhcpOptionsId': 'dopt-57e3ef31',
   'State': 'available',

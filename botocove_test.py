@@ -39,4 +39,3 @@ def get_enabled_regions(session):
 
 if __name__ == "__main__":
   main()
-  
